@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="x-admin-sm"xmlns:th="http://www.thymeleaf.org"
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 
@@ -41,20 +41,8 @@
       <dl class="layui-nav-child">
         <!-- 二级菜单 -->
         <dd>
-          <a onclick="xadmin.open('最大化','http://www.baidu.com','','',true)">
-            <i class="iconfont">&#xe6a2;</i>弹出最大化</a></dd>
+          <a onclick="xadmin.open('创建活动','/to/createAct')">创建活动</a></dd>
         <dd>
-          <a onclick="xadmin.open('弹出自动宽高','http://www.baidu.com')">
-            <i class="iconfont">&#xe6a8;</i>弹出自动宽高</a></dd>
-        <dd>
-          <a onclick="xadmin.open('弹出指定宽高','http://www.baidu.com',500,300)">
-            <i class="iconfont">&#xe6a8;</i>弹出指定宽高</a></dd>
-        <dd>
-          <a onclick="xadmin.add_tab('在tab打开','member-list.html')">
-            <i class="iconfont">&#xe6b8;</i>在tab打开</a></dd>
-        <dd>
-          <a onclick="xadmin.add_tab('在tab打开刷新','member-del.html',true)">
-            <i class="iconfont">&#xe6b8;</i>在tab打开刷新</a></dd>
       </dl>
     </li>
   </ul>

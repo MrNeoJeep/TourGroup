@@ -27,4 +27,10 @@ public class RouterController {
     @RequestMapping("/userInfo")
     public String toUserInfo() {return "admin/userInfo";}
 
+    //进入创建活动页面
+    @RequestMapping("/createAct")
+    public String toCreateAct(){
+        return "admin/createAct";
+    }
+
 }
