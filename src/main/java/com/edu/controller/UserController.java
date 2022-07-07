@@ -26,8 +26,10 @@ public class UserController {
         User user = userService.queryUserByName(username);
         String InputPwd = MD5Utils.inputPassToFormPass(password);
 
-        session.setAttribute("userSession", user);
+
         if(InputPwd.equals(user.getPassword())){
+            session.setAttribute("loginUser",user);
+            session.setAttribute("username",user.getUsername());
             msg = "success";
         }
 
