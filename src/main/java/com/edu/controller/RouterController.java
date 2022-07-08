@@ -33,4 +33,9 @@ public class RouterController {
         return "admin/createAct";
     }
 
+    @RequestMapping("/test")
+    public String toTest(){
+        return "admin/test";
+    }
+
 }

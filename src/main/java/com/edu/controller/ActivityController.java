@@ -41,6 +41,7 @@ public class ActivityController {
        return msg;
     }
 
+
     @PutMapping
     public Result update(@RequestBody Activity activity) {
         boolean flag = activityService.update(activity);
