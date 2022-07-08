@@ -13,4 +13,8 @@ public interface ActivityMapper {
      * @return
      */
     public int addActivity(Activity activity);
+
+    public int updateActivity(Activity activity);
+
+    public Activity queryActivityByName(String name);
 }

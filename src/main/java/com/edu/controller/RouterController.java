@@ -43,4 +43,14 @@ public class RouterController {
         return "admin/head";
     }
 
+    @RequestMapping("/act")
+    public String toAct(){
+        return "admin/act";
+    }
+
+    @RequestMapping("/edit")
+    public String toEdit(){
+        return "admin/editActivity";
+    }
+
 }

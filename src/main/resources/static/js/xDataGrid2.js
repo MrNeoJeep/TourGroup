@@ -9,11 +9,11 @@ $(function () {
 });
 
 var TableInit = function () {
-    var oTableInit = new Object();
+    var oTableInit = {};
     //初始化Table
     oTableInit.Init = function () {
         $('#tb_departments').bootstrapTable({
-            url: '/activity/GetHeadAct/'+sessionStorage.getItem('key').toString(),         //请求后台的URL（*）
+            url: '/activity/YiJiaRu/' + sessionStorage.getItem('key').toString(),         //请求后台的URL（*）
             // url: '/activity',
             method: 'get',                   //请求方式（*）
             search: 'true',
@@ -71,11 +71,11 @@ var TableInit = function () {
                 field: 'costed',
                 align: 'center',
                 title: '已交团费'
-            },{
+            }, {
                 field: 'finish',
                 align: 'center',
                 title: '是否结束'
-            },{
+            }, {
                 field: 'ending',
                 align: 'center',
                 title: '结束时间'
@@ -98,8 +98,8 @@ function actionFormatter(value, row, index) {
     var id = index;
     var data = JSON.stringify(row);
     var result = "";
-    //result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">编辑</button>";
-    result += "<button class='btn btn-outline-danger btn-sm ch' type='button' onclick=\"DeleteByIds('" + id + "','" + row + "')\">删除</button>";
+    result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">缴费</button>";
+    // result += "<button class='btn btn-outline-danger btn-sm ch' type='button' onclick=\"DeleteByIds('" + id + "','" + row + "')\">删除</button>";
     //{#result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + JSON.stringify(row) + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";#}
     // result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + row + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
     //{#result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"edit()\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";#}
@@ -117,30 +117,15 @@ function EditViewById(row, index) {
     //由于data2已经是对象了，alert不能显示对象只能显示为[object Object],需要控制台打印
     //{#alert(data_json[0]); #}
     //根据index找到对应行数据，填充数据到修改模态框
-    $("#id").val(data_json[index].id);
-    $("#id").attr("disabled", "true");		//组件内容禁止修改
-    $("#update_name").val(data_json[index].name);
-    $("#update_name").removeAttr("disabled", "true");  // 删除禁止修改属性
-    $("#update_category").val(data_json[index].category);
-    $("#uupdate_category").removeAttr("readonly");
-    $("#update_origin").val(data_json[index].origin);
-    $("#update_origin").removeAttr("readonly");
-    $("#update_price").val(data_json[index].price);
-    $("#update_price").removeAttr("readonly");
-    $("#update_date").val(data_json[index].date);
-    $("#update_date").removeAttr("readonly");
-    $("#update_manufacturer").val(data_json[index].manufacturer);
-    $("#update_manufacturer").removeAttr("readonly");
-
-
-    // $("#updateModalLabel").html("修改部门信息");
-
-    // $("#view_close").attr("class", "btn btn-default");
-    // $("#view_submit").show();		// 显示提交按钮
-    //$("#view_submit").attr("style", "display:block;");
+    $("#activityid").val(data_json[index].id);
+    $("#activityid").attr("disabled", "true");		//组件内容禁止修改
+    $("#xuyao").val(data_json[index].cost);
+    $("#xuyao").attr("disabled", "true");		//组件内容禁止修改
+    $("#yijiao").val(data_json[index].costed);
+    $("#yijiao").attr("disabled", "true");		//组件内容禁止修改
 
     //弹出修改/查看“部门信息”模态框,对话框中的数据将以Post方式发送。
-    $('#updateModal').modal('show');
+    $('#exampleModal').modal('show');
 }
 
 // 删除选中行的数据
@@ -167,7 +152,7 @@ function DeleteByIds(index, row) {
 }
 
 var ButtonInit = function () {
-    var oInit = new Object();
+    var oInit = {};
     var postdata = {};
 
     oInit.Init = function () {

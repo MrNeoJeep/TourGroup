@@ -8,4 +8,25 @@
          VALUES(#{time}, #{head}, #{content}, #{starting}, #{member}, #{cost}, #{costed}, #{finish}, #{ending})
     </insert>
 
+    <update id="updateActivity" parameterType="Activity">
+        update activity
+        set
+            time = #{time},
+            head = #{head},
+            content = #{content},
+            `starting` = #{starting},
+            member = #{member},
+            cost = #{cost},
+            costed = #{costed},
+            finish = #{finish},
+            ending = #{ending}
+        where id = #{id};
+
+    </update>
+
+    <select id="queryActivityByName" parameterType="String" resultType="Activity">
+        select *
+        from activity where content = #{name};
+    </select>
+
 </mapper>

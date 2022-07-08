@@ -28,6 +28,7 @@
 
   </script>
 </head>
+
 <body class="index">
 <!-- 顶部开始 -->
 <div class="container">
@@ -43,6 +44,9 @@
         <!-- 二级菜单 -->
         <dd>
           <a onclick="xadmin.open('创建活动','/to/createAct')">创建活动</a></dd>
+        <dd>
+        <dd>
+          <a onclick="xadmin.open('修改活动','/to/edit')">修改活动</a></dd>
         <dd>
       </dl>
     </li>
@@ -88,7 +92,7 @@
           <cite>我创建的活动</cite></a>
       </li>
       <li>
-        <a onclick="xadmin.add_tab('我已加入的活动','checkhomeworkwork',true)">
+        <a onclick="xadmin.add_tab('我已加入的活动','/to/act')">
           <i class="layui-icon">&#xe602;</i>
           <cite>我已加入的活动</cite></a>
       </li>

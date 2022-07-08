@@ -19,7 +19,15 @@ public interface ActivityService {
 
     public int addActivity(Activity activity);
 
-    public List<Activity> getHeadAct(Integer head);
+    public List<Activity> getHeadAct(String head);
 
     public boolean updatemember(String member,Integer id);
+
+    public List<Activity> getYiJiaRu(String username);
+
+    public boolean addcosted(Integer costed,Integer id);
+
+    public int updateActivity(Activity activity);
+
+    public Activity queryActivityByName(String name);
 }

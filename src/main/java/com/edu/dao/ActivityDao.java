@@ -23,8 +23,11 @@ public interface ActivityDao {
     public List<Activity> getAll();
 
     @Select("select * from activity where head = #{head}")
-    public List<Activity> getHeadAct(Integer head);
+    public List<Activity> getHeadAct(String head);
 
     @Update("update activity set member = #{member} where id = #{id}")
     public void updatemember(@Param("member") String member,@Param("id") Integer id);
+
+    @Update("update activity set costed = #{costed} where id = #{id}")
+    public void addcosted(@Param("costed") Integer costed,@Param("id") Integer id);
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 public class Activity {
     private Integer id;
     private String time;
-    private Integer head;
+    private String head;
     private String content;
     private String starting;//出发地
     private String member;
