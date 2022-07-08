@@ -17,4 +17,4 @@
 
 基于SpringBoot和Bootstrap的旅游拼团系统，使用Git版本控制工具进行版本控制，同时使用sweetalert2+layui进行前端美化，引入MD5加密密文保存用户密码等隐私数据。
 
-
+![](index.png)
