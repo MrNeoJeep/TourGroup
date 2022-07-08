@@ -83,8 +83,8 @@
 <script src="https://cdn.oooiooo.me/gh/mt-theme/metron-assets@3.0.2/metron/js/metron-plugin.js"></script>
 <script src="https://cdn.oooiooo.me/gh/mt-theme/metron-assets@3.0.2/metron/js/scripts.js"></script>
 <script src="https://cdn.oooiooo.me/gh/mt-theme/metron-assets@3.0.2/metron/js/auth.js"></script>
-<script th:src="@{js/sweetalert2.all.min.js}"></script>
-
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>-->
+<script th:src="@{js/bootstrap.min.js}"></script>
 <script>
     $('#login_submit').on('click',function (){
         Swal.fire({
@@ -95,47 +95,53 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, login it!'
-        }).then(function (){
-                $.ajax({
-                    url: "/login.do",
-                    method: "post",
-                    data: {
-                        'username': $('#username').val(),
-                        'password': $('#password').val()
-                    },
-                    success: function (data, status) {
-                        console.log(data)
-                        console.log(status)
-                        if (status == "fail") {
+
+        }).then((isConfirm) =>{
+                if(isConfirm.value){
+                    $.ajax({
+                        url: "/login.do",
+                        method: "post",
+                        data: {
+                            'username': $('#username').val(),
+                            'password': $('#password').val()
+                        },
+                        success: function (data, status) {
+                            console.log(data)
+                            console.log(status)
+                            if (status == "fail") {
+                                Swal.fire(
+                                    '登录!',
+                                    '登录失败！用户名或密码错误',
+                                    'error'
+                                )
+                                location = location;
+
+                            } else {
+                                Swal.fire(
+                                    '登录!',
+                                    '你已成功登录',
+                                    'success'
+                                )
+                                window.location.href = "/to/admin"
+                            }
+                        },
+                        error: function () {
                             Swal.fire(
                                 '登录!',
                                 '登录失败！用户名或密码错误',
                                 'error'
                             )
-                            location = location;
+                        },
+                        complete: function () {
 
-                        } else {
-                            Swal.fire(
-                                '登录!',
-                                '你已成功登录',
-                                'success'
-                            )
-                            window.location.href = "/to/admin"
                         }
-                    },
-                    error: function () {
-                        Swal.fire(
-                            '登录!',
-                            '登录失败！用户名或密码错误',
-                            'error'
-                        )
-                    },
-                    complete: function () {
-
-                    }
 
 
-                });
+                    });
+                }else{
+                    Swal.fire("取消", "点击了取消", "error");
+                }
+
 
         })
     })

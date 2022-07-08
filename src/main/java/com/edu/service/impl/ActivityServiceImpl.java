@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
+
     @Autowired
     private ActivityDao activityDao;
 

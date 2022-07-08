@@ -94,8 +94,8 @@
 <script src="https://cdn.oooiooo.me/gh/mt-theme/metron-assets@3.0.2/metron/js/scripts.js"></script>
 <script src="https://cdn.oooiooo.me/gh/mt-theme/metron-assets@3.0.2/metron/js/auth.js"></script>
 <!--<script src="../js/layer/layer.js"></script>-->
-<script th:src="@{js/sweetalert2.all.min.js}"></script>
-
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>-->
+<script th:src="@{js/bootstrap.min.js}"></script>
 <script>
     function check2pwd() {
         if(password.value != repassword.value) {
@@ -114,7 +114,8 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, register it!'
-        }).then(function () {
+        }).then((isConfirm) =>{
+            if(isConfirm.value){
                 $.ajax({
                     url: "/register.do",
                     method: "post",
@@ -155,6 +156,10 @@
 
 
                 });
+            }else{
+                Swal.fire("取消", "点击了取消", "error");
+            }
+
 
         })
     })

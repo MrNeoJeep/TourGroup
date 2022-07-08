@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ActivityDao {
-    @Insert("insert into activity (time, head, content, starting, member, cost, costed) values(#{time}, #{head}, #{content}, #{starting}, #{member}, #{cost}, #{costed})")
+    @Insert("insert into activity (time, head, content, starting, member, cost, costed,finish,ending) values(#{time}, #{head}, #{content}, #{starting}, #{member}, #{cost}, #{costed},#{finish},#{ending})")
     public void save(Activity activity);
 
     @Update("update activity set time = #{time}, head = #{head}, content = #{content}, starting = #{starting}, member = #{member}, cost = #{cost} , costed = #{costed} where id = #{id}")
