@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>活动管理</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <!-- <link rel="shortcut icon" href="assets/images/favicon.ico"> -->
+
+        <!-- DataTables -->
+        <link th:href="@{/plugins/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/plugins/datatables/responsive.bootstrap4.min.css}" rel="stylesheet" type="text/css"/>
+
+        <!-- App css -->
+        <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/assets/css/icons.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/assets/css/style.css}" rel="stylesheet" type="text/css" />
+
+        <script th:src="@{/assets/js/modernizr.min.js}"></script>
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                            <h4 class="header-title">所有拼团活动</h4>
+                            
+                            <div class="text-center mt-4 mb-4">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-4">
+                                        <div class="card-box widget-flat border-custom bg-custom text-white">
+                                            <i class="fi-tag"></i>
+                                            <h3 class="m-b-10">114514</h3>
+                                            <p class="text-uppercase m-b-5 font-13 font-600">所有拼团活动</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4">
+                                        <div class="card-box bg-primary widget-flat border-primary text-white">
+                                            <i class="fi-archive"></i>
+                                            <h3 class="m-b-10">1919</h3>
+                                            <p class="text-uppercase m-b-5 font-13 font-600">正在进行</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-sm-4">
+                                        <div class="card-box widget-flat border-success bg-success text-white">
+                                            <i class="fi-help"></i>
+                                            <h3 class="m-b-10">810</h3>
+                                            <p class="text-uppercase m-b-5 font-13 font-600">已经结束</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-6 col-sm-3">
+                                        <div class="card-box bg-danger widget-flat border-danger text-white">
+                                            <i class="fi-delete"></i>
+                                            <h3 class="m-b-10">250</h3>
+                                            <p class="text-uppercase m-b-5 font-13 font-600">Deleted Tickets</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            <table class="table table-hover m-0 tickets-list table-actions-bar dt-responsive nowrap" cellspacing="0" width="100%" id="datatable">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        编号
+                                    </th>
+                                    <th>举办者</th>
+                                    <th>拼团主题</th>
+                                    <th>拼团人数</th>
+                                    <th>状态</th>
+                                    <th>是否参加</th>
+                                    <th>开始时间</th>
+                                    <th>结束时间</th>
+                                    <th class="hidden-sm">Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                               
+
+
+                                <tr>
+                                    <td><b>2251</b></td>
+                                    <td>
+                                        <a href="javascript: void(0);">
+                                            <!-- <img src="assets/images/users/avatar-8.jpg" alt="contact-img" title="contact-img" class="rounded-circle" /> -->
+                                            <span class="ml-2">Mr.K</span>
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                       拼团1
+                                    </td>
+
+                                    <td>
+                                        22
+                                    </td>
+
+                                    
+
+                                    <td>
+                                        <span class="badge badge-success">正在拼团</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-danger">已经参加</span>
+                                    </td>
+                                    <td>
+                                        2022-07-08
+                                    </td>
+
+                                    <td>
+                                        2022-09-08
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-group dropdown">
+                                            <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>编辑</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-check-all mr-2 text-muted font-18 vertical-middle"></i>关闭</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>删除</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>3654</b></td>
+                                    <td>
+                                        <a href="javascript: void(0);">
+                                            <!-- <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="rounded-circle" /> -->
+                                            <span class="ml-2">Mr.Li</span>
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        拼团2
+                                    </td>
+
+                                    <td>
+                                        25
+                                    </td>
+
+                                  
+
+                                    <td>
+                                        <span class="badge badge-secondary">拼团结束</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-warning">未参加</span>
+                                    </td>
+                                    <td>
+                                        2022-01-01
+                                    </td>
+
+                                    <td>
+                                        2023-01-01
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-group dropdown">
+                                            <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>编辑</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-check-all mr-2 text-muted font-18 vertical-middle"></i>关闭</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>删除</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><b>114</b></td>
+                                    <td>
+                                        <a href="javascript: void(0);">
+                                            <!-- <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="rounded-circle" /> -->
+                                            <span class="ml-2">Mr.KZ</span>
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        拼团3
+                                    </td>
+
+                                    <td>
+                                        514
+                                    </td>
+
+                                  
+
+                                    <td>
+                                        <span class="badge badge-secondary">拼团结束</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-warning">未参加</span>
+                                    </td>
+                                    <td>
+                                        2022-01-01
+                                    </td>
+
+                                    <td>
+                                        2023-01-01
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-group dropdown">
+                                            <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>编辑</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-check-all mr-2 text-muted font-18 vertical-middle"></i>关闭</a>
+                                                <a class="dropdown-item" href="#"><i class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>删除</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- end col -->
+                </div>
+                <!-- end row -->
+
+            </div> <!-- end container -->
+        </div>
+        <!-- end wrapper -->
+
+
+        
+
+
+        <!-- jQuery  -->
+        <script th:src="@{/assets/js/jquery.min.js}"></script>
+        <script th:src="@{/assets/js/popper.min.js}"></script>
+        <script th:src="@{/assets/js/bootstrap.min.js}"></script>
+        <script th:src="@{/assets/js/waves.js}"></script>
+        <script th:src="@{/assets/js/jquery.slimscroll.js}"></script>
+
+        <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/plugins/datatables/dataTables.bootstrap4.min.js}"></script>
+        <script th:src="@{/plugins/datatables/dataTables.responsive.min.js}"></script>
+
+        <!-- App js -->
+        <script th:src="@{/js/jquery.core.js}"></script>
+        <script th:src="@{/js/jquery.app.js}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#datatable').dataTable();
+            });
+        </script>
+
+
+    </body>
+</html>
