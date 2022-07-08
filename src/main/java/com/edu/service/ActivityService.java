@@ -20,4 +20,6 @@ public interface ActivityService {
     public int addActivity(Activity activity);
 
     public List<Activity> getHeadAct(Integer head);
+
+    public boolean updatemember(String member,Integer id);
 }

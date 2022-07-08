@@ -25,4 +25,6 @@ public interface ActivityDao {
     @Select("select * from activity where head = #{head}")
     public List<Activity> getHeadAct(Integer head);
 
+    @Update("update activity set member = #{member} where id = #{id}")
+    public void updatemember(@Param("member") String member,@Param("id") Integer id);
 }

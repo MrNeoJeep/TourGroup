@@ -56,4 +56,10 @@ public class ActivityServiceImpl implements ActivityService {
     public List<Activity> getHeadAct(Integer head) {
         return  activityDao.getHeadAct(head);
     }
+
+    @Override
+    public boolean updatemember(String member, Integer id) {
+        activityDao.updatemember(member, id);
+        return true;
+    }
 }

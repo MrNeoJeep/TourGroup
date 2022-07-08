@@ -4,6 +4,7 @@ import com.edu.constant.Code;
 import com.edu.constant.Result;
 import com.edu.mapper.UserMapper;
 import com.edu.pojo.Activity;
+import com.edu.pojo.UpMember;
 import com.edu.pojo.User;
 import com.edu.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,12 @@ public class ActivityController {
     public List<Activity> getHeadAct(@PathVariable Integer head){
         List<Activity> activityList = activityService.getHeadAct(head);
         return activityList;
+    }
+
+    @PostMapping("/UpdateMember")
+    public Result updatemember(@RequestBody UpMember upMember){
+        boolean flag = activityService.updatemember(upMember.getMember(),upMember.getId());
+        return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR, flag);
     }
 
 }

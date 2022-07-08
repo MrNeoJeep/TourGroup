@@ -79,14 +79,14 @@ var TableInit = function () {
                 field: 'ending',
                 align: 'center',
                 title: '结束时间'
-            }/*/, {
+            }, {
                 field: 'operate',
                 title: '操作',
                 //width: 120,
                 align: 'center',
                 valign: 'middle',
                 formatter: actionFormatter,
-            }/*/
+            }
             ]
         });
     };
@@ -98,7 +98,7 @@ function actionFormatter(value, row, index) {
     var id = index;
     var data = JSON.stringify(row);
     var result = "";
-    //result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">编辑</button>";
+    result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">编辑</button>";
     result += "<button class='btn btn-outline-danger btn-sm ch' type='button' onclick=\"DeleteByIds('" + id + "','" + row + "')\">删除</button>";
     //{#result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + JSON.stringify(row) + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";#}
     // result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + row + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
@@ -155,7 +155,7 @@ function DeleteByIds(index, row) {
     //alert("部门名称: " + data_json[index].Name);
     //alert(str_data_json);	// JSON对象转字符串
     //根据index找到对应行数据，通过ajax方式，发送到服务器。
-    axios.delete("/goods/" + data_json[index].id.toString()).then((res) => {
+    axios.delete("/activity/" + data_json[index].id.toString()).then((res) => {
         if (res.data.code == 20021) {
             layer.msg("删除成功！", {time: 1000, icon: 6, shift: 6});
         } else {

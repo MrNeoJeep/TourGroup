@@ -117,30 +117,23 @@ function EditViewById(row, index) {
     //由于data2已经是对象了，alert不能显示对象只能显示为[object Object],需要控制台打印
     //{#alert(data_json[0]); #}
     //根据index找到对应行数据，填充数据到修改模态框
-    $("#id").val(data_json[index].id);
-    $("#id").attr("disabled", "true");		//组件内容禁止修改
-    $("#update_name").val(data_json[index].name);
-    $("#update_name").removeAttr("disabled", "true");  // 删除禁止修改属性
-    $("#update_category").val(data_json[index].category);
-    $("#uupdate_category").removeAttr("readonly");
-    $("#update_origin").val(data_json[index].origin);
-    $("#update_origin").removeAttr("readonly");
-    $("#update_price").val(data_json[index].price);
-    $("#update_price").removeAttr("readonly");
-    $("#update_date").val(data_json[index].date);
-    $("#update_date").removeAttr("readonly");
-    $("#update_manufacturer").val(data_json[index].manufacturer);
-    $("#update_manufacturer").removeAttr("readonly");
+    var str_data_json = JSON.stringify(data_json[index]);
 
+    var member = data_json[index].member.toString()+","+sessionStorage.getItem('key').toString();
 
-    // $("#updateModalLabel").html("修改部门信息");
-
-    // $("#view_close").attr("class", "btn btn-default");
-    // $("#view_submit").show();		// 显示提交按钮
-    //$("#view_submit").attr("style", "display:block;");
-
-    //弹出修改/查看“部门信息”模态框,对话框中的数据将以Post方式发送。
-    $('#updateModal').modal('show');
+    var da = {
+        "member": member,
+        "id":data_json[index].id
+    };
+    axios.post("/activity/UpdateMember", da).then((res) => {
+        if (res.data.code == 20031) {
+            layer.msg("加入成功！", {time: 1000, icon: 6, shift: 6});
+        } else {
+            layer.msg("加入失败！", {time: 1000, icon: 5, shift: 6});
+        }
+    }).finally(() => {
+        $("#tb_departments").bootstrapTable('refresh');
+    });
 }
 
 // 删除选中行的数据
