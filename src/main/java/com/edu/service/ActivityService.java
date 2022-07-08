@@ -16,4 +16,8 @@ public interface ActivityService {
     public Activity getById(Integer id);
 
     public List<Activity> getAll();
+
+    public int addActivity(Activity activity);
+
+    public List<Activity> getHeadAct(Integer head);
 }

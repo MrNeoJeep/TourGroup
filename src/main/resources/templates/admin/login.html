@@ -97,6 +97,7 @@
             confirmButtonText: 'Yes, login it!'
 
         }).then((isConfirm) =>{
+            sessionStorage.setItem('key', $('#username').val());
                 if(isConfirm.value){
                     $.ajax({
                         url: "/login.do",

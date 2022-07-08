@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Activity {
     private Integer id;
-    private Date time;
+    private String time;
     private Integer head;
     private String content;
     private String starting;//出发地
@@ -18,6 +18,6 @@ public class Activity {
     private Integer cost;
     private Integer costed;
     private int finish;
-    private Date ending;
+    private String ending;
 
 }

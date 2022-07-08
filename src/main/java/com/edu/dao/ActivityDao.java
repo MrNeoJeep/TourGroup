@@ -21,4 +21,8 @@ public interface ActivityDao {
 
     @Select("select * from activity")
     public List<Activity> getAll();
+
+    @Select("select * from activity where head = #{head}")
+    public List<Activity> getHeadAct(Integer head);
+
 }

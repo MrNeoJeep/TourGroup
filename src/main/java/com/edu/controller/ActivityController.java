@@ -21,8 +21,15 @@ public class ActivityController {
     private UserMapper userMapper;
 
     //创建项目
-    @PostMapping("/createAct")
-    public String save(@RequestBody Activity activity, HttpSession session) {
+    @RequestMapping("/createAct")
+    public String save(String time, String content, String starting, String cost, String ending, HttpSession session) {
+        Activity activity = new Activity();
+
+        activity.setTime(time);
+        activity.setContent(content);
+        activity.setStarting(starting);
+        activity.setCost(Integer.parseInt(cost));
+        activity.setEnding(ending);
         String username = (String) session.getAttribute("username");
         User user = userMapper.queryUserByName(username);
         //设置团长
@@ -32,15 +39,15 @@ public class ActivityController {
         activity.setCosted(0);
         //0代表活动未完成，1代表活动完成。
         activity.setFinish(0);
-        boolean flag = activityService.save(activity);
+//        System.out.println(activity);
+        int flag = activityService.addActivity(activity);
         String msg = "fail";
-       if(flag){
-           msg = "success";
-       }
-        System.out.println("msg = "+msg);
-       return msg;
+        if(flag > 0){
+            msg = "success";
+        }
+//        System.out.println("msg = "+msg);
+        return msg;
     }
-
 
     @PutMapping
     public Result update(@RequestBody Activity activity) {
@@ -63,10 +70,17 @@ public class ActivityController {
     }
 
     @GetMapping
-    public Result getAll() {
+    public List<Activity> getAll() {
         List<Activity> activityList = activityService.getAll();
         Integer code = activityList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = activityList != null ? "" : "数据查询失败，请重试！";
-        return new Result(code, activityList, msg);
+        return activityList;
     }
+
+    @GetMapping("/GetHeadAct/{head}")
+    public List<Activity> getHeadAct(@PathVariable Integer head){
+        List<Activity> activityList = activityService.getHeadAct(head);
+        return activityList;
+    }
+
 }

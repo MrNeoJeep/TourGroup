@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>创建活动</title>
+  <meta charset="UTF-8">
+  <title>创建活动</title>
   <link rel="stylesheet" th:href="@{css/sweetalert2.min.css}">
   <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <style type="text/css">
@@ -84,12 +84,11 @@
     </div>
   </div>
 </div>
-<!--<script th:src="@{js/jquery-3.3.1.min.js}"></script>-->
-<!--<script th:src="@{js/sweetalert2.all.min.js}"></script>-->
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!--<script th:src="@{js/bootstrap.min.js}"></script>-->
+
 
 <script>
   $('#createAct_submit').on('click',function (){
@@ -101,6 +100,7 @@
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, create it!'
+
     }).then((isConfirm) =>{
       if(isConfirm.value){
         $.ajax({
@@ -112,7 +112,6 @@
             'starting': $('#starting').val(),
             'cost': $('#cost').val(),
             'ending': $('#ending').val()
-
           },
           success: function (data, status) {
             console.log(data)
@@ -128,7 +127,7 @@
             } else {
               Swal.fire(
                       '创建活动!',
-                      '活动已经创建成功',
+                      '活动已成功创建',
                       'success'
               )
               window.location.href = "/to/admin"
@@ -137,7 +136,7 @@
           error: function () {
             Swal.fire(
                     '创建活动!',
-                    '创建失败！请重新填写',
+                    '创建失败！',
                     'error'
             )
           },
@@ -154,6 +153,7 @@
 
     })
   })
+
 </script>
 </body>
 </html>

@@ -8,13 +8,13 @@ $(function () {
     oButtonInit.Init();
 });
 
-
 var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
         $('#tb_departments').bootstrapTable({
-            url: '/activity',         //请求后台的URL（*）
+            url: '/activity/GetHeadAct/'+sessionStorage.getItem('key').toString(),         //请求后台的URL（*）
+            // url: '/activity',
             method: 'get',                   //请求方式（*）
             search: 'true',
             toolbar: '#toolbar',                //工具按钮用哪个容器
@@ -79,14 +79,14 @@ var TableInit = function () {
                 field: 'ending',
                 align: 'center',
                 title: '结束时间'
-            }, {
+            }/*/, {
                 field: 'operate',
                 title: '操作',
                 //width: 120,
                 align: 'center',
                 valign: 'middle',
                 formatter: actionFormatter,
-            }
+            }/*/
             ]
         });
     };
@@ -98,8 +98,8 @@ function actionFormatter(value, row, index) {
     var id = index;
     var data = JSON.stringify(row);
     var result = "";
-    result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">加入</button>";
-    //result += "<button class='btn btn-outline-danger btn-sm ch' type='button' onclick=\"DeleteByIds('" + id + "','" + row + "')\">删除</button>";
+    //result += "<button class='btn btn-outline-primary btn-sm ch mx-2' type='button' onclick=\"EditViewById('" + row + "','" + id + "')\">编辑</button>";
+    result += "<button class='btn btn-outline-danger btn-sm ch' type='button' onclick=\"DeleteByIds('" + id + "','" + row + "')\">删除</button>";
     //{#result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + JSON.stringify(row) + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";#}
     // result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + row + "','" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
     //{#result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"edit()\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";#}

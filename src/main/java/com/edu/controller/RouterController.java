@@ -38,4 +38,9 @@ public class RouterController {
         return "admin/test";
     }
 
+    @RequestMapping("/head")
+    public String toHead(){
+        return "admin/head";
+    }
+
 }
